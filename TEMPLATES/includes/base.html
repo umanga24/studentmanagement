@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+  <script type="text/javascript">
+
+
+  </script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+      </li>
+      {% if user.is_authenticated %}
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'sms:list_student' %}">Student<span class="sr-only">(current)</span>  </a>
+      </li>
+      {% endif %}
+      {% if user.is_authenticated %}
+      <li class="nav-item active">
+        <a class="nav-link disabled" href="{% url 'sms:add_student' %}">Add Student</a>
+      </li>
+      {% endif %}
+
+      {% if user.is_authenticated %}
+      <li class="nav-item active">
+        <a class="nav-link disabled" href="{% url 'sms:list_supervisor' %}">Supervisor</a>
+      </li>
+      {% endif %}
+
+      {% if user.is_authenticated %}
+      <li class="nav-item active">
+        <a class="nav-link disabled" href="{% url 'sms:add_supervisor' %}">Add Supervisor</a>
+      </li>
+      {% endif %}
+
+
+        <li class="nav-item active">
+        <a class="nav-link disabled" href="{% url 'sms:list_faculty' %}">Faculty</a>
+      </li>
+      {% if user.is_authenticated %}
+        <li class="nav-item active">
+        <a class="nav-link disabled" href="{% url 'sms:add_faculty' %}">Add Faculty</a>
+      </li>
+      {% endif %}
+      {% if user.is_authenticated %}
+        <li class="nav-item active">
+        <a class="nav-link disabled" href="{% url 'sms:list_batch' %}">Batch</a>
+      </li>
+      {% endif %}
+
+      {% if user.is_authenticated %}
+
+        <li class="nav-item active">
+        <a class="nav-link disabled" href="{% url 'sms:list_section' %}">Section</a>
+      </li>
+
+      {% endif %}
+
+      {% if user.is_authenticated %}
+      <li class="nav-item active">
+        <a click="nav-link disabled" href="{% url 'sms:logout_user' %}">Logout</a>
+      </li>
+
+      {% else %}
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'sms:login_user' %}">Login</a>
+      </li>
+
+       <li class="nav-item active">
+        <a class="nav-link" href="{% url 'sms:register' %}">Register</a>
+      </li>
+
+      {% endif %}
+
+
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+    {% block content %}
+
+
+
+    {%endblock %}
+
+<footer>
+    <div align="center"> copyright @....</div>
+</footer>
+
+</body>
+</html>

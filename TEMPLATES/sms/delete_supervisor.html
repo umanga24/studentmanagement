@@ -1,0 +1,17 @@
+{% extends 'includes/base.html' %}
+{% block content %}
+<form action="#" method="POST">
+    {%csrf_token%}
+    <h1>Are you want to delete {{supervisor.name}}</h1>
+    <button type="submit" class="btn btn-danger">Okay</button>
+    <a href="{% url 'sms:list_supervisor' %}"
+         class="btn btn-light">Cancel
+    </a>
+
+
+</form>
+
+
+
+
+{% endblock %}

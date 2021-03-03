@@ -1,0 +1,68 @@
+{% extends 'includes/base.html' %}
+
+
+{% block content %}
+    <table class ="table">
+        <thead>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Address</th>
+            <th>Gender</th>
+            <th>Image</th>
+            <th>Edit</th>
+            <th>Delete</th>
+            <th>Details</th>
+
+        </thead>
+
+        <tbody>
+            {% for supervisor in supervisors %}
+                <tr>
+                    <td>{{supervisor.name}}</td>
+                    <td>{{supervisor.age}}</td>
+                    <td>{{supervisor.address}}</td>
+                    <td>{{supervisor.gender}}</td>
+                    <td>{% if supervisor.supervisor_photo %}
+                            <img src="{{ supervisor.supervisor_photo.url }}" alt="Image not found" height="30px">
+                        {% else %}
+                            No photo available
+                        {% endif %}
+
+
+
+                    </td>
+
+
+
+                    <td>
+                        <a href="{% url 'sms:edit_supervisor' pk=supervisor.pk %}">
+                            <button class="btn btn-warning">Edit</button>
+
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'sms:delete_supervisor' pk=supervisor.pk %}">
+                            <button class="btn btn-danger">Delete</button>
+
+                        </a>
+
+                    </td>
+
+                    <td>
+                        <a href="{% url 'sms:details_supervisor' pk=supervisor.pk %}">
+                            <button class='btn btn-primary'>Details</button>
+                        </a>
+
+                    </td>
+
+
+
+                </tr>
+        {% endfor %}
+        </tbody>
+
+
+
+    </table>
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'includes/base.html' %}
+{% block content %}
+<table class="table">
+    <thead>
+        <th>Faculty</th>
+        <th>Supervisor</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th>Details</th>
+
+
+    </thead>
+
+    <tbody>
+        {% for faculty in faculties %}
+        <tr>
+            <td>{{faculty.name}}</td>
+            <td>{{faculty.supervisor}}</td>
+            <td>
+                <a href="{% url 'sms:edit_faculty' pk=faculty.pk %}"
+                     class= "btn btn-warning">Edit
+
+                </a>
+            </td>
+
+            <td>
+                <a href="{%  url 'sms:delete_faculty' pk=faculty.pk %}">
+                    <button class="btn btn-danger">Delete</button>
+                </a>
+
+            </td>
+            <td>
+                <a href="{% url 'sms:details_faculty' pk=faculty.pk %}">
+                    <button class="btn btn-primary">Details</button>
+
+                </a>
+
+            </td>
+
+        </tr>
+    {% endfor %}
+
+    </tbody>
+
+
+</table>
+
+{% endblock %}

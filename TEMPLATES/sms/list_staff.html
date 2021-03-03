@@ -1,0 +1,29 @@
+{% extends 'includes/base.html' %}
+{% block content %}
+    <table class="table">
+        <thead>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Phone</th>
+        <th>Gender</th>
+        <th>Student</th>
+
+        </thead>
+
+            {% for staff in staffs %}
+            <tr>
+                <td>{{staff.name}}</td>
+                <td>{{staff.age}}</td>
+                <td>{{staff.phone}}</td>
+                <td>{{staff.gender}}</td>
+                <td>{{staff.student_name.all | join:', '}}</td>
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+
+    </table>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'includes/base.html' %}
+{% block content %}
+
+<table class="table">
+    <thead>
+        <th>Name</th>
+        <th>Semester</th>
+        <th>Faculty</th>
+        <th>Leacture</th>
+    </thead>
+
+
+
+    <tbody>
+        {% for subject in subjects %}
+        <tr>
+            <td>{{subject.name}}</td>
+            <td>{{subject.semester}}</td>
+            <td>{{subject.faculty}}</td>
+            <td>{{subject.staff}}</td>
+
+
+        </tr>
+    {% endfor %}
+
+    </tbody>
+
+
+
+</table>
+
+{% endblock %}

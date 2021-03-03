@@ -1,0 +1,51 @@
+{% extends 'includes/base.html' %}
+
+
+{% block content %}
+<br>
+
+   <li class="nav-item active">
+        <a class="btn btn-info" href="{% url 'sms:add_batch' %}">Add Batch</a>
+      </li><br>
+
+
+<table class="table">
+    <thead>
+    <th>Batch</th>
+    <th>Edit</th>
+    <th>Delete</th>
+
+
+    </thead>
+    <tbody>
+    {% for bac in batches %}
+    <tr>
+        <td>{{bac.batch}}</td>
+        <td>
+            <a href="{% url 'sms:edit_batch' pk=bac.pk %}" class="btn btn-warning">Edit</a>
+
+
+        </td>
+
+        <td>
+            <a href="{% url 'sms:delete_batch' pk=bac.pk %}" class="btn btn-danger">Delete</a>
+
+
+        </td>
+
+
+    </tr>
+    {% endfor %}
+
+
+
+    </tbody>
+
+
+
+
+
+</table>
+
+
+{% endblock %}

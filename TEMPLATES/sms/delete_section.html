@@ -1,0 +1,13 @@
+{% extends 'includes/base.html' %}
+{% block content %}
+<form action="#" method="POST">
+{%csrf_token%}
+{{form.as_p}}
+    <h1>Are you want to delete {{section.name}}</h1>
+    <button type="submit" class="btn btn-danger">Okya</button>
+
+    <a href="{% url 'sms:list_section' %}" class="btn btn-light">Cancel</a>
+
+
+</form>
+{% endblock %}

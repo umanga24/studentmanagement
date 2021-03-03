@@ -1,0 +1,12 @@
+{% extends 'includes/base.html' %}
+
+{% block content %}
+<h1>{{ faculty.name }}</h1>
+<h1>{{ faculty.supervisor }}</h1>
+
+<a href="{% url 'sms:list_supervisor' %}">
+    <button class="btn btn-light"> << back</button>
+</a>
+
+
+{% endblock %}

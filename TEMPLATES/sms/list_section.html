@@ -1,0 +1,39 @@
+{% extends 'includes/base.html' %}
+{% block content %}
+<br>
+  <li class="nav-item active">
+        <a class="btn btn-info" href="{% url 'sms:add_section' %}">Add Section</a>
+      </li><br>
+<table class="table">
+    <thead>
+    <th>Name</th>
+    <th>Edit</th>
+    </thead>
+
+    <tbody>
+    {% for section in sections %}
+    <tr>
+        <td>{{section.name}}</td>
+        <td>
+            <a href="{% url 'sms:edit_section' pk=section.pk %}" class="btn btn-warning">Edit</a>
+
+        </td>
+
+        <td>
+            <a href="{% url 'sms:delete_section' pk=section.pk %}" class="btn btn-danger">Delete</a>
+
+        </td>
+
+    </tr>
+    {% endfor %}
+
+
+    </tbody>
+
+    </thead>
+
+</table>
+
+
+
+{% endblock %}
